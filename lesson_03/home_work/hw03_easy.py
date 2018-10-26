@@ -4,14 +4,31 @@
 # Округление должно происходить по математическим правилам (0.6 --> 1, 0.4 --> 0).
 # Для решения задачи не используйте встроенные функции и функции из модуля math.
 
+def my_round(number, ndigits):
+    num=(number+5/(10**(ndigits+1)))-(number+5/(10**(ndigits+1)))%(1/(10**ndigits))
+    return num
+print(my_round(2.1234567, 5))
 
 # Задание-2:
 # Дан шестизначный номер билета. Определить, является ли билет счастливым.
 # Решение реализовать в виде функции.
 # Билет считается счастливым, если сумма его первых и последних цифр равны.
 # !!!P.S.: функция не должна НИЧЕГО print'ить
+def sum_3_digits(number):
+    d1=number%10
+    d2=number%100//10
+    d3=number//100
+    return d1+d2+d3
+print(sum_3_digits(432))
+def lucky_ticket(ticket_number):
+    part1=ticket_number//1000
+    part2=ticket_number%1000
+    if sum_3_digits(part1)!=sum_3_digits(part2):
+        return "Вам повезет потом"
+    else:
+        return "Вам привалило счастье"
 
-
+print(lucky_ticket(127145))
 
 
 
