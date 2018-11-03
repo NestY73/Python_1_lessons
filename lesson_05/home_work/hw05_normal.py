@@ -14,7 +14,27 @@
 # оформленные в виде соответствующих функций,
 # и импортированные в данный файл из easy.py
 
+import os
+import sys
+import libs.module2 as my_lib
 
+print("Вы можете:")
+print(" [1] - Перейти в папку")
+print(" [2] - Просмотреть содержимое текущей папки")
+print(" [3] - Удалить папку")
+print(" [4] - Создать папку")
+do = int(input("Укажите номер действия: "))
+if do == 1:
+    dir_name=input("Введите имя директории")
+    print(my_lib.move_to_dir(dir_name))
+elif do == 2:
+    print(my_lib.listdir())
+elif do == 3:
+    dir_name=input("Введите имя директории")
+    print(my_lib.del_dir(dir_name))
+elif do == 4:
+    dir_name=input("Введите имя директории")
+    print(my_lib.create_dir(dir_name))
 
 
 
